@@ -28,7 +28,20 @@ async function get_all_comments() {
   return articulos;
 }
 
+async function addTagsToComment(commentId, tagIds) {
+  const pool = await database();
+  const deleteQuery = "DELETE FROM comments_tags WHERE comment_id = ?";
+  await pool.query(deleteQuery, [commentId]);
+
+  if (tagIds.length > 0) {
+    const insertQuery = "INSERT INTO comments_tags (comment_id, tag_id) VALUES ?";
+    const values = tagIds.map((tagId) => [commentId, tagId]);
+    await pool.query(insertQuery, [values]);
+  }
+}
+
 module.exports = {
   post_comment,
   get_all_comments,
+  addTagsToComment,
 };
