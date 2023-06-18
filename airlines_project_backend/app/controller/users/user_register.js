@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 const repositoryUsers = require("../../repository/repository_users");
 const crearErrorJson = require("../../error/crear_error_json");
 
+// Validation schema using Joi
 const schema = Joi.object().keys({
   userName: Joi.string()
     .regex(/^[ A-Za-zÁÉÍÓÚáéíóúÑñ]+$/)
@@ -20,6 +21,7 @@ const schema = Joi.object().keys({
 
 async function userRegister(req, res) {
   try {
+    // Validation of input data using the defined schema
     await schema.validateAsync(req.body);
 
     const {
@@ -30,6 +32,7 @@ async function userRegister(req, res) {
         userId,
     } = req.body;
 
+    // Check if the email is already in use
     const existingEmail = await repositoryUsers.findUserByEmail(email);
     if (existingEmail) {
       const error = new Error("A user with that email already exists.");
@@ -37,6 +40,7 @@ async function userRegister(req, res) {
       throw error;
     }
 
+    // Check if the username is already in use
     const existingUserId = await repositoryUsers.findUserByUsername(
       userId
     );
@@ -46,6 +50,7 @@ async function userRegister(req, res) {
       throw error;
     }
 
+    // Hash the password
     const passwordHash = await bcrypt.hash(userPassword, 12);
 
     const id = await repositoryUsers.createUser(

@@ -5,6 +5,7 @@ const crearErrorJson = require("../../error/crear_error_json");
 
 async function getAllFlights(req, res) {
   try {
+    //get all flights from DDBB
     const flights = await repositoryFligths.get_all_flights();
 
     res.status(200).send(flights);
