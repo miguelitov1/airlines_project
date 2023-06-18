@@ -40,8 +40,18 @@ async function addTagsToComment(commentId, tagIds) {
   }
 }
 
+async function getCommentsByFlightId(flight_id) {
+  const pool = await database();
+  const query = "SELECT * FROM comments WHERE flight_id = ?";
+  const [comments] = await pool.query(query, [flight_id]);
+
+  return comments;
+}
+
+
 module.exports = {
   post_comment,
   get_all_comments,
   addTagsToComment,
+  getCommentsByFlightId,
 };
