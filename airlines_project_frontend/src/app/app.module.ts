@@ -1,16 +1,26 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FlightListSidebarComponent } from './flight-list-sidebar/flight-list-sidebar.component';
+import { CommentTableComponent } from './comment-table/comment-table.component';
+import { CreateCommentComponent } from './create-comment/create-comment.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FlightListSidebarComponent,
+    CommentTableComponent,
+    CreateCommentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

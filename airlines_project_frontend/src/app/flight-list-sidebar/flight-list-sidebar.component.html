@@ -1,0 +1,8 @@
+<ul *ngFor="let flight of flights" (click)="selectFlight(flight)">
+    <li>
+      {{ flight.flightId }}
+    </li>
+    <li>
+      {{ flight.airlineName }}
+    </li>
+  </ul>
