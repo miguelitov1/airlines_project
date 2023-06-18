@@ -3,7 +3,7 @@
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = process.env;
 
-function validarAuth(req, res, next) {
+function validateAuth(req, res, next) {
   try {
     const { authorization } = req.headers;
 
@@ -37,4 +37,4 @@ function validarAuth(req, res, next) {
     res.send({ error: err.message });
   }
 }
-module.exports = validarAuth;
+module.exports = validateAuth;

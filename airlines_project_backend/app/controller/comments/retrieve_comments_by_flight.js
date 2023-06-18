@@ -1,7 +1,7 @@
 "use strict";
 
 const repositoryComments = require("../../repository/repository_comments");
-const crearErrorJson = require("../../error/crear_error_json");
+const crearErrorJson = require("../../error/create_error_json");
 
 async function getCommentsByFlightId(req, res) {
   try {

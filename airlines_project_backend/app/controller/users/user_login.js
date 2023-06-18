@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 const repositoryUsers = require("../../repository/repository_users");
-const crearErrorJson = require("../../error/crear_error_json");
+const crearErrorJson = require("../../error/create_error_json");
 
 // Validation schema using Joi
 const schema = Joi.object().keys({

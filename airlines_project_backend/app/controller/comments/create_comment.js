@@ -2,7 +2,7 @@
 
 const Joi = require("joi");
 const repositoryComments = require("../../repository/repository_comments");
-const crearErrorJson = require("../../error/crear_error_json");
+const crearErrorJson = require("../../error/create_error_json");
 
 // Validation schema using Joi
 const schema = Joi.object().keys({

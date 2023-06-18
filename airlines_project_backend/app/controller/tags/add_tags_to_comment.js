@@ -3,7 +3,7 @@
 const Joi = require("joi");
 const repositoryTags = require("../../repository/repository_tags");
 const repositoryComments = require("../../repository/repository_comments");
-const crearErrorJson = require("../../error/crear_error_json");
+const crearErrorJson = require("../../error/create_error_json");
 
 const schema = Joi.object().keys({
   tags: Joi.array().items(Joi.string()).required(),

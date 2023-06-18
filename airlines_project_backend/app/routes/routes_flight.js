@@ -1,7 +1,7 @@
 "use strict";
 
 const express = require("express");
-//const validarAuth = require("../middlewares/validar-auth");
+//const validateAuth = require("../middlewares/validate_auth");
 
 const createFlight = require("../controller/flights/create_flight");
 const getAllFlight = require("../controller/flights/retrieve_flights");
@@ -12,7 +12,7 @@ router.route("/").get((req, res) => getAllFlight(req, res));
 
 router
   .route("/")
-  //.all(validarAuth)
+  //.all(validateAuth)
   .post((req, res) => createFlight(req, res));
 
   module.exports = router;

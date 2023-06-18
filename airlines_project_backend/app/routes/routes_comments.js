@@ -1,7 +1,7 @@
 "use strict";
 
 const express = require("express");
-const validarAuth = require("../middlewares/validar-auth");
+const validateAuth = require("../middlewares/validate_auth");
 
 const getAllComments = require('../controller/comments/retrieve_comment');
 const createComment = require('../controller/comments/create_comment');
@@ -18,12 +18,12 @@ router.get("/:flightId", (req, res) => getCommentsByFlightId(req, res));
 //privates
 router
 .route("/")
-.all(validarAuth)
+.all(validateAuth)
 .post((req, res) => createComment(req, res));
 
 router
 .route("/:commentId/tags")
-.all(validarAuth)
+.all(validateAuth)
 .post((req, res) => addTagsToComment(req, res));
 
  module.exports = router;

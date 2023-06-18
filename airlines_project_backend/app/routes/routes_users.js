@@ -1,7 +1,7 @@
 "use strict";
 
 const express = require("express");
-//const validarAuth = require("../middlewares/validar-auth");
+//const validateAuth = require("../middlewares/validate_auth");
 
 const userRegister = require("../controller/users/user_register");
 const userLogin = require("../controller/users/user_login");

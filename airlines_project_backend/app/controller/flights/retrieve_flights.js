@@ -1,7 +1,7 @@
 "use strict";
 
 const repositoryFligths = require("../../repository/repository_flights");
-const crearErrorJson = require("../../error/crear_error_json");
+const crearErrorJson = require("../../error/create_error_json");
 
 async function getAllFlights(req, res) {
   try {
