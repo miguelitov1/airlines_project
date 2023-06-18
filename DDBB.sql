@@ -5,7 +5,8 @@ use airline;
 -- creacion tablas 
 create table flights(
 id int unsigned auto_increment primary key,
-flightId varchar(20) unique not null
+flightId varchar(20) not null,
+airlineName varchar(60) not null
 );
 
 create table users(
@@ -24,7 +25,6 @@ CREATE TABLE tags (
 
 create table comments(
 id int unsigned auto_increment primary key,
-commentId int unsigned not null,
 user_id int unsigned not null,
 flight_id int unsigned not null,
 userComment longtext not null,

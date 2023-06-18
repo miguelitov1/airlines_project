@@ -8,11 +8,10 @@ const getAllComments = require("../controller/retrieve_comment");
 
 const router = express.Router();
 
-//Publicas
 router.route("/").get((req, res) => getAllComments(req, res));
 
 router
-  .route("/:idComment")
+  .route("/")
   //.all(validarAuth)
   .post((req, res) => createComment(req, res));
 

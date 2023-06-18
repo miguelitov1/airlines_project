@@ -2,17 +2,15 @@
 
 const database = require("../infrastructure/database");
 
-async function put_comment(
-  commentId,
+async function post_comment(
   user_id,
   flight_id,
   userComment,
 ) {
   const pool = await database();
   const insertQuery =
-    "INSERT INTO comments (commentId, user_id, flight_id, userCommen) VALUES(?, ?, ?, ?)";
+    "INSERT INTO comments (user_id, flight_id, userComment) VALUES(?, ?, ?)";
   const [created] = await pool.query(insertQuery, [
-    commentId,
     user_id,
     flight_id,
     userComment,
@@ -31,6 +29,6 @@ async function get_all_comments() {
 }
 
 module.exports = {
-  put_comment,
+  post_comment,
   get_all_comments,
 };

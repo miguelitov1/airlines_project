@@ -5,9 +5,9 @@ const crearErrorJson = require("../error/crear_error_json");
 
 async function getAllComments(req, res) {
   try {
-    const articulos = await repositoryComments.get_all_comments();
+    const comments = await repositoryComments.get_all_comments();
 
-    res.status(200).send(articulos);
+    res.status(200).send(comments);
   } catch (err) {
     crearErrorJson(err, res);
   }
