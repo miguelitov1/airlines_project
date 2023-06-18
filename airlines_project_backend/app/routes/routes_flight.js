@@ -3,8 +3,8 @@
 const express = require("express");
 //const validarAuth = require("../middlewares/validar-auth");
 
-const createFlight = require("../controller/create_flight");
-const getAllFlight = require("../controller/retrieve_flights");
+const createFlight = require("../controller/flights/create_flight");
+const getAllFlight = require("../controller/flights/retrieve_flights");
 
 const router = express.Router();
 

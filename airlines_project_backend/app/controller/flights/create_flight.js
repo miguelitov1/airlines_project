@@ -1,8 +1,8 @@
 "use strict";
 
 const Joi = require("joi");
-const repositoryFlights = require("../repository/repository_flights");
-const crearErrorJson = require("../error/crear_error_json");
+const repositoryFlights = require("../../repository/repository_flights");
+const crearErrorJson = require("../../error/crear_error_json");
 
 const schema = Joi.object().keys({
     flightId: Joi.number().positive().required(),
@@ -11,9 +11,6 @@ const schema = Joi.object().keys({
   
   async function createFlights(req, res) {
     try {
-      //await schema.validateAsync(req.body);
-  
-      //const id_usuario = req.auth.id;
   
       const {
         flightId,

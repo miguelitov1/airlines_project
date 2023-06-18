@@ -16,9 +16,12 @@
     "nodemon": "^2.0.22"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "crypto-random-string": "^5.0.0",
     "dotenv": "^16.3.0",
     "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.0",
     "mysql2": "^3.3.5"
   }
 }
