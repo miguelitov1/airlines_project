@@ -29,6 +29,7 @@ user_id int unsigned not null,
 flight_id int unsigned not null,
 userComment longtext not null,
 commentDate timestamp default current_timestamp,
+tags VARCHAR(255) NOT NULL DEFAULT '',
 constraint comments_users_fk foreign key (user_id)
 	references users(id) on delete cascade,
 constraint comments_flights_fk foreign key (flight_id)
