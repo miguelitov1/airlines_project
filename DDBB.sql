@@ -29,7 +29,6 @@ user_id int unsigned not null,
 flight_id int unsigned not null,
 userComment longtext not null,
 commentDate timestamp default current_timestamp,
-tags VARCHAR(255) NOT NULL DEFAULT '',
 constraint comments_users_fk foreign key (user_id)
 	references users(id) on delete cascade,
 constraint comments_flights_fk foreign key (flight_id)
@@ -43,3 +42,7 @@ CREATE TABLE comments_tags (
   FOREIGN KEY (comment_id) REFERENCES comments(id) ON DELETE CASCADE,
   FOREIGN KEY (tag_id) REFERENCES tags(id) ON DELETE CASCADE
 );
+
+Select * from tags;
+ALTER TABLE comments ADD tags VARCHAR(255) NOT NULL DEFAULT "";
+
