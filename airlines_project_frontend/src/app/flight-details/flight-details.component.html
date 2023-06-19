@@ -1,0 +1,15 @@
+<div class="flight-info-container">
+    <h2>Flight Information</h2>
+    <p>Airline Name: {{ airlineName }}</p>
+    <p>Flight Number: {{ flightId }}</p>
+</div>
+
+<app-comment-table [id]="id"></app-comment-table>
+
+<div class="button-back">
+    <button  (click)="onClickGoBack()">Back to Flight List</button>
+</div>
+
+<div class="button-add">
+    <button (click)="onAddComment()">+</button>
+  </div>
