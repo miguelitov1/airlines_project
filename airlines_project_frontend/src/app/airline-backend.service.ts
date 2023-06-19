@@ -13,5 +13,9 @@ export class BackendService {
     return this.http.get(`${this.baseUrl}/flights`);
   }
 
-  // Agrega más métodos según las operaciones que necesites realizar en el backend (crear comentario, obtener comentarios, etc.)
+  getCommentsByFlightId(flightId: number) {
+    return this.http.get(`${this.baseUrl}/comments/${flightId}`);
+  }
+
+
 }

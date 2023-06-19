@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { FlightListSidebarComponent } from './flight-list-sidebar/flight-list-sidebar.component';
 import { CommentTableComponent } from './comment-table/comment-table.component';
 import { CreateCommentComponent } from './create-comment/create-comment.component';
+import { FlightDetailsComponent } from './flight-details/flight-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FlightListSidebarComponent,
     CommentTableComponent,
-    CreateCommentComponent
+    CreateCommentComponent,
+    FlightDetailsComponent,
   ],
   imports: [
     BrowserModule,

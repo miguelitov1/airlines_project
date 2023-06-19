@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../airline-backend.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-flight-list-sidebar',
@@ -9,8 +10,10 @@ import { BackendService } from '../airline-backend.service';
 
 export class FlightListSidebarComponent implements OnInit {
   flights: any[];
+  selectedFlight: any;
+  showComments = false;
 
-  constructor(private backendService: BackendService) { 
+  constructor(private backendService: BackendService, private router: Router) { 
     this.flights = [];
   }
 
@@ -21,7 +24,15 @@ export class FlightListSidebarComponent implements OnInit {
   }
 
   selectFlight(flight: any) {
-    // Aquí puedes agregar la lógica que deseas ejecutar al seleccionar un vuelo
-    console.log('Vuelo seleccionado:', flight);
+    this.selectedFlight = flight;
+    this.showComments = true; //hide component
+
   }
+  
+  onGoBack() {
+    this.showComments = false;
+  //  this.router.navigate(['/']);
+  }
+  // Redirect to the CommentTableComponent component and pass the flight ID as a parameter in the URL
+  // this.router.navigate(['/comments', flight.id]);
 }
