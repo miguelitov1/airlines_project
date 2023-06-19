@@ -1,0 +1,25 @@
+<div class="comment-table-container">
+
+  <table>
+
+    <thead>
+      <tr>
+        <th>ID del comentario</th>
+        <th>Comentario</th>
+        <th>Usuario</th>
+        <th>Tags</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let comment of comments">
+        <td>{{ comment.id }}</td>
+        <td>{{ comment.userComment }}</td>
+        <td>{{ comment.user_id }}</td>
+        <td>{{ comment.tags }}</td>
+      </tr>
+    </tbody>
+    
+  </table>
+  
+</div>

@@ -43,6 +43,4 @@ CREATE TABLE comments_tags (
   FOREIGN KEY (tag_id) REFERENCES tags(id) ON DELETE CASCADE
 );
 
-Select * from tags;
-ALTER TABLE comments ADD tags VARCHAR(255) NOT NULL DEFAULT "";
 

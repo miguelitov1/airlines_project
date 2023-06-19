@@ -1,0 +1,13 @@
+<form (ngSubmit)="submitForm()">
+    <label for="comment">Comentario:</label>
+    <textarea id="comment" [(ngModel)]="newComment.text"></textarea>
+  
+    <label for="user">Usuario:</label>
+    <input type="text" id="user" [(ngModel)]="newComment.user">
+  
+    <label for="tags">Tags:</label>
+    <input type="text" id="tags" [(ngModel)]="newComment.tags">
+  
+    <button type="submit">Enviar</button>
+</form>
+  

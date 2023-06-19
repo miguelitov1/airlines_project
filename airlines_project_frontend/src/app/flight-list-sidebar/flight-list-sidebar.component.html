@@ -1,0 +1,19 @@
+<div class="sidebar" *ngIf="!showComments">
+  <h2>List of Flights</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Flight Name</th>
+        <th>Flight Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let flight of flights" (click)="selectFlight(flight)">
+        <td>{{ flight.flightId }}</td>
+        <td>{{ flight.airlineName }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-flight-details *ngIf="showComments" [airlineName]="selectedFlight.airlineName" [flightId]="selectedFlight.flightId" [id]="selectedFlight.id" (goBack)="onGoBack()"></app-flight-details>
