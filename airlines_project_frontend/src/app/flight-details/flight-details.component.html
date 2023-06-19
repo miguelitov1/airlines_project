@@ -6,10 +6,12 @@
 
 <app-comment-table [id]="id"></app-comment-table>
 
-<div class="button-back">
-    <button  (click)="onClickGoBack()">Back to Flight List</button>
-</div>
+<div class="buttons-container">
+    
+    <app-back-button></app-back-button>
+    
+    <div class="button-add">
+        <button (click)="onAddComment()">+</button>
+    </div>
 
-<div class="button-add">
-    <button (click)="onAddComment()">+</button>
-  </div>
+</div>

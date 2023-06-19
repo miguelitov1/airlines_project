@@ -1,4 +1,4 @@
-<div class="sidebar" *ngIf="!showComments">
+<div class="sidebar">
   <h2>List of Flights</h2>
   <table>
     <thead>
@@ -16,4 +16,3 @@
   </table>
 </div>
 
-<app-flight-details *ngIf="showComments" [airlineName]="selectedFlight.airlineName" [flightId]="selectedFlight.flightId" [id]="selectedFlight.id" (goBack)="onGoBack()"></app-flight-details>

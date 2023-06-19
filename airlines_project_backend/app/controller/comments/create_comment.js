@@ -30,6 +30,7 @@ const schema = Joi.object().keys({
       );
   
       res.status(201).send({ id, user_id, flight_id, userComment });
+      
     } catch (err) {
       crearErrorJson(err, res);
     }

@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { BackendService } from "../airline-backend.service";
+import { Comment } from '../models/comment.model';
 
 @Component({
   selector: 'app-comment-table',
@@ -8,9 +9,10 @@ import { BackendService } from "../airline-backend.service";
 })
 export class CommentTableComponent {
   @Input() id: number | undefined;
-  comments: any[] = [];
+  comments: Comment[] = [];
 
-  constructor( private backendService: BackendService) {}
+  constructor(private backendService: BackendService) {}
+
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['id'] && changes['id'].currentValue) {
@@ -23,8 +25,8 @@ export class CommentTableComponent {
 
       this.backendService.getCommentsByFlightId(this.id)
         .subscribe((response: any) => {
+        this.comments = response as Comment[];
           //console.log(response);
-          this.comments = response;
         });
 
     } else {

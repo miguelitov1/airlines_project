@@ -3,7 +3,7 @@
 const Joi = require("joi");
 const bcrypt = require("bcryptjs");
 const repositoryUsers = require("../../repository/repository_users");
-const crearErrorJson = require("../../error/create_error_json");
+const createErrorJson = require("../../error/create_error_json");
 
 // Validation schema using Joi
 const schema = Joi.object().keys({
@@ -65,7 +65,7 @@ async function userRegister(req, res) {
       .status(201)
       .send({ id, userName, userLastName, email, userId });
   } catch (err) {
-    crearErrorJson(err, res);
+    createErrorJson(err, res);
   }
 }
 

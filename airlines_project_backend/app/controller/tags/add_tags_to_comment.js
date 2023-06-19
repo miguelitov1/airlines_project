@@ -3,7 +3,7 @@
 const Joi = require("joi");
 const repositoryTags = require("../../repository/repository_tags");
 const repositoryComments = require("../../repository/repository_comments");
-const crearErrorJson = require("../../error/create_error_json");
+const createErrorJson = require("../../error/create_error_json");
 
 const schema = Joi.object().keys({
   tags: Joi.array().items(Joi.string()).required(),
@@ -33,7 +33,7 @@ async function addTagsToComment(req, res) {
 
     res.status(200).send({ message: "Tags added successfully to the comment." });
   } catch (err) {
-    crearErrorJson(err, res);
+    createErrorJson(err, res);
   }
 }
 

@@ -9,6 +9,8 @@ import { FlightListSidebarComponent } from './flight-list-sidebar/flight-list-si
 import { CommentTableComponent } from './comment-table/comment-table.component';
 import { CreateCommentComponent } from './create-comment/create-comment.component';
 import { FlightDetailsComponent } from './flight-details/flight-details.component';
+import { HomeComponent } from './home/home.component';
+import { BackButtonComponent } from './back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { FlightDetailsComponent } from './flight-details/flight-details.componen
     CommentTableComponent,
     CreateCommentComponent,
     FlightDetailsComponent,
+    HomeComponent,
+    BackButtonComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
