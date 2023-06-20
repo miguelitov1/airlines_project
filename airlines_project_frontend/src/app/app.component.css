@@ -1,11 +1,11 @@
-.page-container {
-    display: flex;
-    justify-content: center;
+  /* mantiene la pagina centrada en el medio */
+  .page-container {
+  width: 70%; /* Establecer el ancho al 70% de la pantalla */
+  margin: 0 auto; /* Centrar horizontalmente */
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    width: 100%; /* Ocupa el ancho completo de la pantalla si es movil o tablet */
   }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-  }
+}
