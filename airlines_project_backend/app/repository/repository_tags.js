@@ -17,20 +17,35 @@ async function getTagsByIds(tagIds) {
   return rows;
 }
 
+// async function createTags(tagNames) {
+//   const pool = await database();
+//   const query = "INSERT INTO tags (tag) VALUES (?)";
+//   const values = tagNames.map((tagName) => [tagName]);
+//   await pool.query(query, values);
+// }
+
 async function createTags(tagNames) {
   const pool = await database();
-  const query = "INSERT INTO tags (tag) VALUES (?)";
-  const values = tagNames.map((tagName) => [tagName]);
-  await pool.query(query, values);
-}
+  const selectQuery = "SELECT id, tag FROM tags WHERE tag IN (?)";
+  const [existingTags] = await pool.query(selectQuery, [tagNames]);
 
-// async function getAllTagsByCommentId(commentId) {
-//   const pool = await database();
-//   const query = "SELECT tag_id FROM comments_tags WHERE comment_id = ?";
-//   const [rows] = await pool.query(query, [commentId]);
-//   const tagIds = rows.map(row => row.tag_id);
-//   return tagIds;
-// }
+  const existingTagNames = existingTags.map((tag) => tag.tag);
+  const newTags = tagNames.filter((tagName) => !existingTagNames.includes(tagName));
+
+  if (newTags.length > 0) {
+    const insertQuery = "INSERT INTO tags (tag) VALUES ?";
+    const values = newTags.map((tagName) => [tagName]);
+    await pool.query(insertQuery, [values]);
+  }
+
+  const allTags = [...existingTags];
+  if (newTags.length > 0) {
+    const [insertedTags] = await pool.query(selectQuery, [newTags]);
+    allTags.push(...insertedTags);
+  }
+
+  return allTags;
+}
 
 async function getAllTagsByCommentId(commentIds) {
   const pool = await database();
