@@ -28,6 +28,7 @@ async function get_all_comments() {
   return articulos;
 }
 
+
 async function addTagsToComment(commentId, tagIds) {
   const pool = await database();
   const deleteQuery = "DELETE FROM comments_tags WHERE comment_id = ?";
@@ -36,8 +37,10 @@ async function addTagsToComment(commentId, tagIds) {
   if (tagIds.length > 0) {
     const insertQuery = "INSERT INTO comments_tags (comment_id, tag_id) VALUES ?";
     const values = tagIds.map((tagId) => [commentId, tagId]);
-    await pool.query(insertQuery, [values]);
+    const [created] = await pool.query(insertQuery, [values]);
+
   }
+
 }
 
 async function getCommentsByFlightId(flight_id) {

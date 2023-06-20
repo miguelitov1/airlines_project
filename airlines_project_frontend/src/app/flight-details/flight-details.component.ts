@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute  } from '@angular/router';
 
 
 @Component({
@@ -10,19 +10,28 @@ import { Router } from '@angular/router';
 
 
 export class FlightDetailsComponent {
-  @Input() airlineName: string | undefined;
-  @Input() flightId: string | undefined;
-  @Input() id: number | undefined;
   @Output() goBack: EventEmitter<void> = new EventEmitter<void>();
+  airlineName: string | undefined;
+  flightId: string | undefined;
+  id: number | undefined;
 
-constructor(private router: Router) {}
+constructor(private router: Router, private route: ActivatedRoute) {}
 
-onClickGoBack() {
-  this.goBack.emit();
+ngOnInit() {
+  this.route.paramMap.subscribe((params) => {
+    const flightId = params.get('flightId');
+    this.id = flightId ? +flightId : undefined;
+    this.flightId = this.route.snapshot.queryParamMap.get('flightNumber') || undefined;
+    this.airlineName = this.route.snapshot.queryParamMap.get('airlineName') || undefined;
+  });
+}
+
+onGoBack() {
+  this.router.navigate(['/']);
 }
 
 onAddComment() {
-  console.log('Add Comment button clicked');
+  this.router.navigate(['/comments'], {queryParams: {flightId: this.id}});
 }
   
 }

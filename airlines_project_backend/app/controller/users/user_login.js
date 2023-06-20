@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 const repositoryUsers = require("../../repository/repository_users");
-const crearErrorJson = require("../../error/create_error_json");
+const createErrorJson = require("../../error/create_error_json");
 
 // Validation schema using Joi
 const schema = Joi.object().keys({
@@ -42,7 +42,7 @@ async function loginUser(req, res) {
     // Generate the JWT (JSON Web Token)
     const secret = process.env.JWT_SECRET;
     const { id, userName, userId, userLastName } = user;
-    const jwtTokenExpiration = "30m";
+    const jwtTokenExpiration = "30d";
     const payload = {
       id,
       userName,
@@ -60,7 +60,7 @@ async function loginUser(req, res) {
 
     res.status(200).send(responde);
   } catch (err) {
-    crearErrorJson(err, res);
+    createErrorJson(err, res);
   }
 }
 

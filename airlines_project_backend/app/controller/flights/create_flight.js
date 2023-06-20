@@ -2,7 +2,7 @@
 
 const Joi = require("joi");
 const repositoryFlights = require("../../repository/repository_flights");
-const crearErrorJson = require("../../error/create_error_json");
+const createErrorJson = require("../../error/create_error_json");
 
 // Validation schema using Joi
 const schema = Joi.object().keys({
@@ -34,7 +34,7 @@ const schema = Joi.object().keys({
   
       res.status(201).send({ id, flightId, airlineName });
     } catch (err) {
-      crearErrorJson(err, res);
+      createErrorJson(err, res);
     }
   }
   

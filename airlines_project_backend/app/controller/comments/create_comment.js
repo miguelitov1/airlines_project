@@ -2,7 +2,7 @@
 
 const Joi = require("joi");
 const repositoryComments = require("../../repository/repository_comments");
-const crearErrorJson = require("../../error/create_error_json");
+const createErrorJson = require("../../error/create_error_json");
 
 // Validation schema using Joi
 const schema = Joi.object().keys({
@@ -30,8 +30,9 @@ const schema = Joi.object().keys({
       );
   
       res.status(201).send({ id, user_id, flight_id, userComment });
+
     } catch (err) {
-      crearErrorJson(err, res);
+      createErrorJson(err, res);
     }
   }
   

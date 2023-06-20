@@ -1,6 +1,6 @@
 "use strict";
 
-function crearErrorJson(err, res) {
+function createErrorJson(err, res) {
   if (err.name === "ValidationError") {
     err.status = 400;
   }
@@ -9,4 +9,4 @@ function crearErrorJson(err, res) {
   res.send({ error: err.message });
 }
 
-module.exports = crearErrorJson;
+module.exports = createErrorJson;

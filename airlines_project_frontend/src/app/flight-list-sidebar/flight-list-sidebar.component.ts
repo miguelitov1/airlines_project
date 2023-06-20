@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../airline-backend.service';
 import { Router } from '@angular/router';
+import { Flight } from '../models/flight.module';
+
 
 @Component({
   selector: 'app-flight-list-sidebar',
@@ -9,30 +11,23 @@ import { Router } from '@angular/router';
 })
 
 export class FlightListSidebarComponent implements OnInit {
-  flights: any[];
+  flights: Flight[];
   selectedFlight: any;
-  showComments = false;
 
   constructor(private backendService: BackendService, private router: Router) { 
     this.flights = [];
   }
 
   ngOnInit() {
-    this.backendService.getFlights().subscribe((flights: Object) => {
-      this.flights = flights as any[];
+    this.backendService.getFlights().subscribe((flights: any) => {
+      this.flights = flights as Flight[];
     });
   }
 
   selectFlight(flight: any) {
     this.selectedFlight = flight;
-    this.showComments = true; //hide component
+    this.router.navigate([`/comments/${flight.id}`], {queryParams: {airlineName: flight.airlineName, flightNumber: flight.flightId }});
 
   }
   
-  onGoBack() {
-    this.showComments = false;
-  //  this.router.navigate(['/']);
-  }
-  // Redirect to the CommentTableComponent component and pass the flight ID as a parameter in the URL
-  // this.router.navigate(['/comments', flight.id]);
 }

@@ -1,7 +1,7 @@
 "use strict";
 
 const repositoryComments = require("../../repository/repository_comments");
-const crearErrorJson = require("../../error/create_error_json");
+const createErrorJson = require("../../error/create_error_json");
 
 async function getAllComments(req, res) {
   try {
@@ -11,7 +11,7 @@ async function getAllComments(req, res) {
 
     res.status(200).send(comments);
   } catch (err) {
-    crearErrorJson(err, res);
+    createErrorJson(err, res);
   }
 }
 

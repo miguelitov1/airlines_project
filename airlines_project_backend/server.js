@@ -14,10 +14,12 @@ app.use(cors());
 const routesUsers = require("./app/routes/routes_users");
 const routesComments = require("./app/routes/routes_comments");
 const routesFlights = require("./app/routes/routes_flight");
+const routesTags = require("./app/routes/routes_tags");
 
 
 app.use("/api/v1/airline_project/comments", routesComments);
 app.use("/api/v1/airline_project/flights", routesFlights);
 app.use("/api/v1/airline_project/users", routesUsers);
+app.use("/api/v1/airline_project/tags", routesTags);
 
 module.exports = app;
